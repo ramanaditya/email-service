@@ -102,18 +102,18 @@ message: Error or Success Message
     ```bash
     python -m pip install --upgrade pip
     ```
-3.  Install python packages
+4.  Install python packages
      ```bash
      python -m pip install -r requirements.txt
      ```
 
-4. Create new Branch from `develop` branch
+5. Create new Branch from `develop` branch
     ```bash
     git checkout -b develop origin/develop
     git checkout -b feature_branch
     ```
 
-5. Generating distribution archives
+6. Generating distribution archives
     ```bash
     # Downloading latest version of setuptools
     python -m pip install --user --upgrade setuptools wheel
@@ -121,29 +121,30 @@ message: Error or Success Message
     python setup.py sdist bdist_wheel
     ```
 
-6. Uploading to Test PyPI
+7. Uploading to Test PyPI
     ```bash
     # Upload to Test PyPI https://test.pypi.org/ 
     python -m twine upload --repository testpypi dist/*
     ```
 
-7. Download the package
+8. Download the package
     ```bash
     python -m pip install -i https://test.pypi.org/simple/ email-service
     ```
 
-8. Check against the code
+9. Check against the code
     ```bash
     # Edit the file inside /example to have some valid data
-    # export SENDGRID_API_KEY before running the file
+    # export SENDGRID_API_KEY before running the script
     python individual_email.py  # For individual email
     python bulk.py  # For bulk email
     ```
-7. Push the Code
+
+10. Push the Code
     ```bash
-    $ git add file_which_was_changed
-    $ git commit -m "Commit Message"
-    $ git push -u origin feature_branch
+    git add file_which_was_changed
+    git commit -m "Commit Message"
+    git push -u origin feature_branch
     ```
 
 ## Issues
