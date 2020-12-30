@@ -89,18 +89,18 @@ message: Error or Success Message
 
 1.  Clone the repository
     ```bash
-    $ git clone https://github.com/ramanaditya/email-service
+    git clone https://github.com/ramanaditya/email-service
     ```
 
 2.  Create a virtual environment using virtualenv or venv.
      ```bash
-     $ python3 -m venv venv 
-     $ source venv/bin/activate
+     python -m venv venv 
+     source venv/bin/activate
      ```
 
 3. Upgrade pip
     ```bash
-    $ python -m pip install --upgrade pip
+    python -m pip install --upgrade pip
     ```
 3.  Install python packages
      ```bash
@@ -109,19 +109,37 @@ message: Error or Success Message
 
 4. Create new Branch from `develop` branch
     ```bash
-    $ git checkout -b develop origin/develop
-    $ git checkout -b feature_branch
+    git checkout -b develop origin/develop
+    git checkout -b feature_branch
     ```
 
 5. Generating distribution archives
     ```bash
     # Downloading latest version of setuptools
-    $ python3 -m pip install --user --upgrade setuptools wheel
+    python -m pip install --user --upgrade setuptools wheel
 
-    $ python3 setup.py sdist bdist_wheel
+    python setup.py sdist bdist_wheel
     ```
-   
-6. Push the Code
+
+6. Uploading to Test PyPI
+    ```bash
+    # Upload to Test PyPI https://test.pypi.org/ 
+    python -m twine upload --repository testpypi dist/*
+    ```
+
+7. Download the package
+    ```bash
+    python -m pip install -i https://test.pypi.org/simple/ email-service
+    ```
+
+8. Check against the code
+    ```bash
+    # Edit the file inside /example to have some valid data
+    # export SENDGRID_API_KEY before running the file
+    python individual_email.py  # For individual email
+    python bulk.py  # For bulk email
+    ```
+7. Push the Code
     ```bash
     $ git add file_which_was_changed
     $ git commit -m "Commit Message"
