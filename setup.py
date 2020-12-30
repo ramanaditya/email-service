@@ -32,7 +32,7 @@ setup(
     long_description_content_type="text/markdown",
     url="https://github.com/ramanaditya/email-service",
     packages=find_packages(),
-    install_requires=["sendgrid==6.4.8", "pytz==2020.5"],
+    install_requires=["sendgrid==6.4.8"],
     classifiers=[
         "Development Status :: 4 - Beta",
         "Intended Audience :: Developers",
