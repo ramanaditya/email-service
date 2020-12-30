@@ -1,5 +1,10 @@
 #!/usr/bin/env python
 
+import os
+from datetime import datetime
+
+import pytz
+
 try:
     from setuptools import setup, find_packages
 except ImportError:
@@ -9,6 +14,11 @@ with open("README.md", "r") as readme_file:
     long_description = readme_file.read()
 
 version = "1.0.0"
+
+# Add datetime.now() for test PyPI to skip conflicts in file name
+test_version = os.environ.get("TESTPYPI", default=False)
+if test_version:
+    version += "." + datetime.now(pytz.timezone("UTC")).strftime("%y.%m.%d.%H") + ""
 
 setup(
     name="email-service",

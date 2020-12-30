@@ -1,3 +1,7 @@
 # Email Clients
 # =======================================================================
-sendgrid==6.4.8
+sendgrid==6.4.8 # https://github.com/sendgrid/sendgrid-python/
+
+# Others
+# =======================================================================
+pytz==2020.5    # https://github.com/stub42/pytz
