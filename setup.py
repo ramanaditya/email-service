@@ -1,37 +1,38 @@
 #!/usr/bin/env python
-
-import os
-from datetime import datetime
-
-import pytz
+from collections import OrderedDict
+from pathlib import Path
 
 try:
     from setuptools import setup, find_packages
 except ImportError:
     from distutils.core import setup
 
-with open("README.md", "r") as readme_file:
+
+ROOT_DIR = Path(__file__).resolve(strict=True).parent
+PACKAGE_DIR = ROOT_DIR / "email_service"
+
+with open(PACKAGE_DIR / "version.py", encoding="utf-8") as version_file:
+    code_obj = compile(version_file.read(), PACKAGE_DIR / "version.py", "exec")
+    __version__ = dict()
+    exec(code_obj, __version__)
+    version = __version__["__version__"]
+
+with open("README.rst", "r") as readme_file:
     long_description = readme_file.read()
-
-version = "1.0.0"
-
-# Add datetime.now() for test PyPI to skip conflicts in file name
-test_version = os.environ.get("TESTPYPI", default=False)
-if test_version:
-    version += "." + datetime.now(pytz.timezone("UTC")).strftime("%y.%m.%d.%H") + ""
 
 setup(
     name="email-service",
     version=version,
-    License="MIT License",
+    license="MIT License",
     author="Aditya Raman",
     author_email="adityaraman96@gmail.com",
     description="Package to integrate different email services with your application "
     "in just three lines of code.",
     long_description=long_description,
-    long_description_content_type="text/markdown",
+    long_description_content_type="text/x-rst",
     url="https://github.com/ramanaditya/email-service",
     packages=find_packages(),
+    zip_safe=False,
     install_requires=["sendgrid==6.4.8"],
     classifiers=[
         "Development Status :: 4 - Beta",
@@ -47,5 +48,11 @@ setup(
     python_requires=">=3.6",
     keywords=(
         "python, email, sendgrid, amazon, ses, mailgun, project, email client, setup.py"
+    ),
+    project_urls=OrderedDict(
+        [
+            ("Source", "https://github.com/ramanaditya/email-service"),
+            ("Tracker", "https://github.com/ramanaditya/email-service/issues"),
+        ]
     ),
 )

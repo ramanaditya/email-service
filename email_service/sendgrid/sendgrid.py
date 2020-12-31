@@ -1,7 +1,22 @@
 import base64
 
 from sendgrid import SendGridAPIClient
-from sendgrid.helpers.mail import *
+from sendgrid.helpers.mail import (
+    Attachment,
+    Bcc,
+    Cc,
+    Content,
+    Disposition,
+    FileContent,
+    FileName,
+    FileType,
+    From,
+    Mail,
+    MimeType,
+    ReplyTo,
+    Subject,
+    To,
+)
 
 from email_service.utils.clean_data import CleanData
 from email_service.utils.constants import ATTACHMENT_FILE_TYPES
@@ -85,10 +100,10 @@ class SendgridMail:
                 }
 
             # For accepting Other errors
-            except:
+            except Exception:
                 status = {
                     "status_code": 400,
-                    "message": f"Something Went Wrong",
+                    "message": "Something Went Wrong",
                 }
             return status
 
