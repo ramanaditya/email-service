@@ -290,4 +290,4 @@ Contribution Guidelines
 * Refer `this <https://github.com/ramanaditya/email-service/blob/main/CONTRIBUTING.md>`__ for more.
 
 
-``If you ❤️ this`` `repository <https://github.com/ramanaditya/email-service>`__ ``, support it by star 🌟``
+``If you`` ❤️ ``this`` `repository <https://github.com/ramanaditya/email-service>`__ ``, support it by star 🌟``
