@@ -1,12 +1,12 @@
 #!/usr/bin/env python
 from collections import OrderedDict
+from pathlib import Path
 
 try:
     from setuptools import setup, find_packages
 except ImportError:
     from distutils.core import setup
 
-from pathlib import Path
 
 ROOT_DIR = Path(__file__).resolve(strict=True).parent
 PACKAGE_DIR = ROOT_DIR / "email_service"
@@ -23,7 +23,7 @@ with open("README.rst", "r") as readme_file:
 setup(
     name="email-service",
     version=version,
-    License="MIT License",
+    license="MIT License",
     author="Aditya Raman",
     author_email="adityaraman96@gmail.com",
     description="Package to integrate different email services with your application "
@@ -32,6 +32,7 @@ setup(
     long_description_content_type="text/x-rst",
     url="https://github.com/ramanaditya/email-service",
     packages=find_packages(),
+    zip_safe=False,
     install_requires=["sendgrid==6.4.8"],
     classifiers=[
         "Development Status :: 4 - Beta",

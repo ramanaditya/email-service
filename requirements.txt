@@ -4,4 +4,5 @@ sendgrid==6.4.8 # https://github.com/sendgrid/sendgrid-python/
 
 # Others
 # =======================================================================
-pytz==2020.5    # https://github.com/stub42/pytz
+pytz==2020.5  # https://github.com/stub42/pytz
+flake8==3.8.4  # https://github.com/PyCQA/flake8
