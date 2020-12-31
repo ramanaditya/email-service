@@ -260,11 +260,11 @@ Issues
     :alt: GitHub last commit
 
 
-
-.. csv-table:: Issues
-   :header: "Issue No.", "Issue"
-
-    ,
++-------------+-------------+
+| Issue No.   | Issue       |
++=============+=============+
+|             |             |
++-------------+-------------+
 
 
 **NOTE**: **Feel free to** `open issues <https://github.com/ramanaditya/email-service/issues/new/choose>`__. Make sure you follow the Issue Template provided.
