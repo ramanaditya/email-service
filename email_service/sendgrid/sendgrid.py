@@ -103,7 +103,7 @@ class SendgridMail:
             except Exception:
                 status = {
                     "status_code": 400,
-                    "message": f"Something Went Wrong",
+                    "message": "Something Went Wrong",
                 }
             return status
 
