@@ -180,6 +180,17 @@ Push the Code
     $ git push -u origin feature_branch
 
 
+Build Package for Local Testing
+================================
+.. code-block:: console
+
+    $ # Build the package
+    $ python setup.py build
+
+    $ # Install the package
+    $ python setup.py install
+
+
 PyPI
 -----
 
