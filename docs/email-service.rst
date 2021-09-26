@@ -72,7 +72,7 @@ Form the dictionary of data
         "html_body": "<h1>Email Template for Individual email</h1>",    # Either of html_body or text_body is required
         "text_body": "Email Template for Individual email",
         "to_for_bulk": [{"name": "Name", "email": "email@gmail.com"},], # Required for Bulk Email
-        "receipients": {
+        "recipients": {
             "to": [{"name": "name1", "email": "email1@gmail.com"},],    # Required
             "cc": [{"name": "name2", "email": "email2@google.com"},],
             "bcc": [{"name": "name3", "email": "email3@google.com"},],

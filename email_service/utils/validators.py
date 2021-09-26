@@ -4,7 +4,11 @@ import os
 class Validation:
     """Validation class to validate the input"""
 
-    def validation(self, data) -> dict:
+    def __init__(self):
+        pass
+
+    @staticmethod
+    def validation(data) -> dict:
         # Validating From
         if "from_email" not in data.keys() or data["from_email"] == "":
             status = {
@@ -30,11 +34,11 @@ class Validation:
                 }
                 return status
 
-        # Validating Receipients
-        if "receipients" not in data.keys() or "to" not in data["receipients"].keys():
+        # Validating Recipients
+        if "recipients" not in data.keys() or "to" not in data["recipients"].keys():
             status = {
                 "status_code": 400,
-                "message": "Missing required parameter - receipients or field is empty",
+                "message": "Missing required parameter - recipients or field is empty",
             }
             return status
 
@@ -43,8 +47,9 @@ class Validation:
             "message": "Validation Passed",
         }
 
-    def file_existnece(self, data):
-        """Checking for the existence of the attachements"""
+    @staticmethod
+    def file_existence(data):
+        """Checking for the existence of the attachments"""
         for single_file in data:
 
             # Skipping for the calendar invite
