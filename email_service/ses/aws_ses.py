@@ -7,7 +7,6 @@ import boto3
 from botocore.exceptions import ClientError
 
 from email_service.utils.clean_data import CleanMailingList
-from email_service.utils.constants import ATTACHMENT_FILE_TYPES
 from email_service.utils.functions import read_file_in_binary
 from email_service.utils.validators import Validation
 
@@ -33,7 +32,6 @@ class SESMail:
             single_file = single_file
 
             file_name, extension = single_file.split(".")
-            file_type = ATTACHMENT_FILE_TYPES[extension]
 
             binary_content = read_file_in_binary(single_file)
 
