@@ -6,7 +6,7 @@ data = {
     "html_body": "<h1>Email Template for Individual email</h1>",
     "text_body": "Email Template for Individual email",
     "from_email": "Name WithSpace <from_email@gmail.com>",
-    "receipients": {
+    "recipients": {
         "to": [{"name": "name1", "email": "email1@gmail.com"},],
         "cc": [{"name": "name2", "email": "email2@google.com"},],
         "bcc": [{"name": "name3", "email": "email3@google.com"},],
