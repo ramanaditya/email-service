@@ -1,6 +1,7 @@
 # Email Clients
 # =======================================================================
-sendgrid==6.4.8 # https://github.com/sendgrid/sendgrid-python/
+sendgrid==6.4.8  # https://github.com/sendgrid/sendgrid-python/
+boto3==1.17.98  # https://boto3.amazonaws.com/v1/documentation/api/latest/index.html
 
 # Others
 # =======================================================================

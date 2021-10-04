@@ -26,7 +26,7 @@ version = __version__["__version__"]
 # -- Project information -----------------------------------------------------
 
 project = "Email Service"
-copyright = """2020, Aditya Raman"""
+copyright = """2021, Aditya Raman"""
 author = "Aditya Raman"
 
 # The full version, including alpha/beta/rc tags

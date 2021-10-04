@@ -7,7 +7,7 @@ data = {
     "text_body": "Email Template for Individual email",
     "from_email": "Name WithSpace <from_email@gmail.com>",
     "to_for_bulk": [{"name": "Name", "email": "email@gmail.com"},],
-    "receipients": {
+    "recipients": {
         "to": [{"name": "name1", "email": "email1@gmail.com"},],
         "cc": [{"name": "name2", "email": "email2@google.com"},],
         "bcc": [{"name": "name3", "email": "email3@google.com"},],

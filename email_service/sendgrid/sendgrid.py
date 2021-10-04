@@ -18,7 +18,7 @@ from sendgrid.helpers.mail import (
     To,
 )
 
-from email_service.utils.clean_data import CleanData
+from email_service.utils.clean_data import CleanMailingList
 from email_service.utils.constants import ATTACHMENT_FILE_TYPES
 from email_service.utils.functions import read_file_in_binary
 from email_service.utils.validators import Validation
@@ -115,16 +115,16 @@ class SendgridMail:
         """
 
         # Cleaning the data
-        event = CleanData().clean_data(data)
+        event = CleanMailingList().clean_mailing_list(data)
 
         # For returning Status
         status = dict()
 
         # For sending Bulk Mail
-        event["receipients"]["bcc"].extend(event["receipients"]["to"])
-        event["receipients"]["to"] = None
-        cc_count = len(event["receipients"]["cc"])
-        bcc_count = len(event["receipients"]["bcc"])
+        event["recipients"]["bcc"].extend(event["recipients"]["to"])
+        event["recipients"]["to"] = None
+        cc_count = len(event["recipients"]["cc"])
+        bcc_count = len(event["recipients"]["bcc"])
         batch = 500 - cc_count - 1  # -1 for 'to' email
         for emails in range(0, bcc_count, batch):
             message = self.form_message(
@@ -134,8 +134,8 @@ class SendgridMail:
                 text_body=event["text_body"],
                 from_email=event["from_email"],
                 to=event["to_for_bulk"],
-                cc=event["receipients"]["cc"],
-                bcc=event["receipients"]["bcc"][emails : emails + batch],
+                cc=event["recipients"]["cc"],
+                bcc=event["recipients"]["bcc"][emails : emails + batch],
                 attachments=event["attachments"],
             )
             status = self.send_email(message)
@@ -150,13 +150,13 @@ class SendgridMail:
         :return status:
         """
         # Cleaning the data
-        event = CleanData().clean_data(data)
+        event = CleanMailingList().clean_mailing_list(data)
 
         # Storing Status
         status = dict()
 
         # Sending Individual Mail
-        for email_id in event["receipients"]["to"]:
+        for email_id in event["recipients"]["to"]:
             message = self.form_message(
                 sub=event["subject"],
                 reply_to_addresses=event["reply_to_addresses"],
@@ -164,8 +164,8 @@ class SendgridMail:
                 text_body=event["text_body"],
                 to=[email_id],
                 from_email=event["from_email"],
-                cc=event["receipients"]["cc"],
-                bcc=event["receipients"]["bcc"],
+                cc=event["recipients"]["cc"],
+                bcc=event["recipients"]["bcc"],
                 attachments=event["attachments"],
             )
             status = self.send_email(message)
@@ -175,7 +175,7 @@ class SendgridMail:
         validation = Validation().validation(data)
 
         if "attachments" in data.keys() and len(data["attachments"]) > 0:
-            Validation().file_existnece(data["attachments"])
+            Validation().file_existence(data["attachments"])
 
         if validation["status_code"] == 200:
             status = dict()
